@@ -1,11 +1,3 @@
-import { Typography } from "@mui/material";
+import Blog from "./blog/Blog"
 
-export default function Home() {
-  return (
-    <main>
-      <Typography variant="h1">
-        Home
-      </Typography>
-    </main>
-  )
-}
+export default Blog
