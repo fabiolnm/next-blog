@@ -1,22 +1,12 @@
-'use client'
+import { Grid, Container } from '@mui/material'
+import { GitHub, Facebook, X } from '@mui/icons-material'
 
-import * as React from 'react'
-import CssBaseline from '@mui/material/CssBaseline'
-import Grid from '@mui/material/Grid'
-import Container from '@mui/material/Container'
-import GitHubIcon from '@mui/icons-material/GitHub'
-import FacebookIcon from '@mui/icons-material/Facebook'
-import XIcon from '@mui/icons-material/X'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
 import Header from './Header'
 import MainFeaturedPost from './MainFeaturedPost'
 import FeaturedPost from './FeaturedPost'
 import Main from './Main'
 import Sidebar from './Sidebar'
 import Footer from './Footer'
-// import post1 from './blog-post.1.md'
-// import post2 from './blog-post.2.md'
-// import post3 from './blog-post.3.md'
 
 const sections = [
   { title: 'Technology', url: '#' },
@@ -59,8 +49,6 @@ const featuredPosts = [
   },
 ]
 
-// const posts = [post1, post2, post3]
-
 const posts: any[] = []
 
 const sidebar = {
@@ -81,19 +69,15 @@ const sidebar = {
     { title: 'April 1999', url: '#' },
   ],
   social: [
-    { name: 'GitHub', icon: GitHubIcon },
-    { name: 'X', icon: XIcon },
-    { name: 'Facebook', icon: FacebookIcon },
+    { name: 'GitHub', icon: GitHub },
+    { name: 'X', icon: X },
+    { name: 'Facebook', icon: Facebook },
   ],
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme()
-
 export default function Blog() {
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
+    <>
       <Container maxWidth="lg">
         <Header title="Blog" sections={sections} />
         <main>
@@ -118,6 +102,6 @@ export default function Blog() {
         title="Footer"
         description="Something here to give the footer a purpose!"
       />
-    </ThemeProvider>
+    </>
   )
 }

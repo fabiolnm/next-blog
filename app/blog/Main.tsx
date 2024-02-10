@@ -1,7 +1,4 @@
-import * as React from 'react'
-import Grid from '@mui/material/Grid'
-import Typography from '@mui/material/Typography'
-import Divider from '@mui/material/Divider'
+import { Divider, Grid, Typography } from '@mui/material'
 
 interface MainProps {
   posts: ReadonlyArray<string>
@@ -12,16 +9,7 @@ export default function Main(props: MainProps) {
   const { posts, title } = props
 
   return (
-    <Grid
-      item
-      xs={12}
-      md={8}
-      sx={{
-        '& .markdown': {
-          py: 3,
-        },
-      }}
-    >
+    <Grid item xs={12} md={8} sx={{ '& .markdown': { py: 3 } }}>
       <Typography variant="h6" gutterBottom>
         {title}
       </Typography>
