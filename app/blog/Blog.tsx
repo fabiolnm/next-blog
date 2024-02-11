@@ -1,15 +1,14 @@
-import { Grid, Container } from '@mui/material'
+import { Grid, Container, Typography, Divider, Paper } from '@mui/material'
 
 import Header from './Header'
 import MainFeaturedPost from './MainFeaturedPost'
 import FeaturedPost from './FeaturedPost'
-import Main from './Main'
 import Sidebar from './Sidebar'
 import Footer from './Footer'
 
 import { featuredPosts } from '../settings'
 
-export default function Blog() {
+export default function Blog({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Container maxWidth="lg">
@@ -23,10 +22,16 @@ export default function Blog() {
         >
           <MainFeaturedPost />
           <Grid container spacing={2}>
-            <Grid item xs={12} md={8}>
-              <Main title="Posts" />
+            <Grid item xs={12} md={9}>
+              <Typography variant="h6" gutterBottom>
+                Posts
+              </Typography>
+              <Divider />
+              <Paper sx={{ display: 'flex', flexDirection: 'column', p: 2 }}>
+                { children }
+              </Paper>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={3}>
               <Sidebar />
             </Grid>
           </Grid>

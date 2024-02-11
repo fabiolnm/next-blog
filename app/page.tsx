@@ -1,3 +1,6 @@
-import Blog from "./blog/Blog"
+import { posts } from "./settings"
 
-export default Blog
+export default function Page () {
+  const [post] = posts
+  return <>{post.title}</>
+}

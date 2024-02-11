@@ -22,20 +22,22 @@ export const mainFeaturedPost = {
 
 export const featuredPosts = [
   {
-    title: 'Featured post',
-    date: 'Nov 12',
+    title: 'Post 3',
+    date: 'Jan 10, 2024',
     description:
       'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
+    image: 'https://source.unsplash.com/random?wallpapers?1',
     imageLabel: 'Image Text',
+    url: '/en/2024/01/10/post3'
   },
   {
-    title: 'Post title',
-    date: 'Nov 11',
+    title: 'Post 2',
+    date: 'Dec 10, 2023',
     description:
       'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
+    image: 'https://source.unsplash.com/random?wallpapers?2',
     imageLabel: 'Image Text',
+    url: '/en/2023/12/10/post2'
   },
 ]
 
@@ -43,18 +45,10 @@ export const sidebar = {
   description:
     'Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.',
   archives: [
-    { title: 'March 2024', url: '#1' },
-    { title: 'February 2024', url: '#2' },
-    { title: 'January 2024', url: '#3' },
-    { title: 'December 2023', url: '#4' },
-    { title: 'November 2023', url: '#5' },
-    { title: 'October 2023', url: '#6' },
-    { title: 'September 2023', url: '#7' },
-    { title: 'August 2023', url: '#8' },
-    { title: 'July 2023', url: '#9' },
-    { title: 'June 2023', url: '#10' },
-    { title: 'May 2023', url: '#11' },
-    { title: 'April 2023', url: '#12' },
+    { title: 'Post 4', url: '/en/2024/02/10/post4' },
+    { title: 'Post 3', url: '/en/2024/01/10/post3' },
+    { title: 'Post 2', url: '/en/2023/12/10/post2' },
+    { title: 'Post 1', url: '/en/2023/11/10/post1' },
   ],
   social: [
     { name: 'GitHub', icon: GitHub },
