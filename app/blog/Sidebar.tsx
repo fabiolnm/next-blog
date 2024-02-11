@@ -2,21 +2,10 @@ import { Grid, Paper, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
 import Archives from './Archives'
 
-interface SidebarProps {
-  archives: ReadonlyArray<{
-    url: string
-    title: string
-  }>
-  description: string
-  social: ReadonlyArray<{
-    icon: React.ElementType
-    name: string
-  }>
-  title: string
-}
+import { sidebar } from '../settings'
 
-export default function Sidebar(props: SidebarProps) {
-  const { archives, description, social, title } = props
+export default function Sidebar() {
+  const { archives, description, social, title } = sidebar
 
   return (
     <Grid item xs={12} md={4}>

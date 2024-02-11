@@ -1,12 +1,13 @@
 import { Divider, Grid, Typography } from '@mui/material'
 
+import { posts } from '../settings'
+
 interface MainProps {
-  posts: ReadonlyArray<string>
   title: string
 }
 
 export default function Main(props: MainProps) {
-  const { posts, title } = props
+  const { title } = props
 
   return (
     <Grid item xs={12} md={8} sx={{ '& .markdown': { py: 3 } }}>
@@ -14,11 +15,13 @@ export default function Main(props: MainProps) {
         {title}
       </Typography>
       <Divider />
-      {/* {posts.map((post) => (
-        <Markdown className="markdown" key={post.substring(0, 40)}>
-          {post}
-        </Markdown>
-      ))} */}
+      {
+        posts.map((post) => (
+          <Typography className="markdown" key={post}>
+            {post.title}
+          </Typography>
+        ))
+      }
     </Grid>
   )
 }

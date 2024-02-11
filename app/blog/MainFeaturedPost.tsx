@@ -1,19 +1,9 @@
 import {  Paper, Typography, Grid, Link, Box } from '@mui/material'
 import Image from 'next/image'
 
-interface MainFeaturedPostProps {
-  post: {
-    description: string
-    image: string
-    imageText: string
-    linkText: string
-    title: string
-  }
-}
+import { mainFeaturedPost as post } from '../settings'
 
-export default function MainFeaturedPost(props: MainFeaturedPostProps) {
-  const { post } = props
-
+export default function MainFeaturedPost() {
   return (
     <Paper
       sx={{

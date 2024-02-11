@@ -2,16 +2,14 @@ import { Button, IconButton, Toolbar, Typography } from '@mui/material'
 import { Search } from '@mui/icons-material'
 import Link from 'next/link'
 
+import { sections } from '../settings'
+
 interface HeaderProps {
-  sections: ReadonlyArray<{
-    title: string
-    url: string
-  }>
   title: string
 }
 
 export default function Header(props: HeaderProps) {
-  const { sections, title } = props
+  const { title } = props
 
   return (
     <>
