@@ -21,7 +21,7 @@ export default function RootLayout({
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <html lang="en">
-          <body>
+          <body suppressHydrationWarning>
             {children}
           </body>
         </html>
