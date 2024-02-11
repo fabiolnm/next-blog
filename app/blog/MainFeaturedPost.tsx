@@ -10,7 +10,6 @@ export default function MainFeaturedPost() {
         position: 'relative',
         backgroundColor: 'grey.800',
         color: '#fff',
-        mb: 4,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
@@ -49,7 +48,7 @@ export default function MainFeaturedPost() {
             <Typography variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography>
-            <Link variant="subtitle1" href="#">
+            <Link variant="subtitle1" href="#" color="#FFF">
               {post.linkText}
             </Link>
           </Box>

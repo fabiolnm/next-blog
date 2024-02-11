@@ -21,11 +21,11 @@ export default function Archives (props: ArchivesProps) {
       <List
         sx={{
           width: '100%',
-          maxWidth: 360,
           maxHeight: 300,
           overflow: 'auto',
           position: 'relative',
           bgcolor: 'background.paper',
+          borderRadius: 1,
           '& ul': { padding: 0 },
         }}
       >

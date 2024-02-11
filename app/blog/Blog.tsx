@@ -14,16 +14,30 @@ export default function Blog() {
     <>
       <Container maxWidth="lg">
         <Header title="Blog" />
-        <main>
+        <main style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 20,
+          marginBottom: 30,
+        }}
+        >
           <MainFeaturedPost />
-          <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
-            ))}
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={8}>
+              <Main title="Posts" />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Sidebar />
+            </Grid>
           </Grid>
-          <Grid container spacing={5} sx={{ mt: 3 }}>
-            <Main title="Posts" />
-            <Sidebar />
+          <Grid container spacing={4}>
+            {
+              featuredPosts.map((post) => (
+                <Grid item xs={12} md={6} key={post.title}>
+                  <FeaturedPost post={post} />
+                </Grid>
+              ))
+            }
           </Grid>
         </main>
       </Container>
