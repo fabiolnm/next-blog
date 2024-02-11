@@ -1,5 +1,6 @@
 import { Grid, Paper, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
+import Archives from './Archives'
 
 interface SidebarProps {
   archives: ReadonlyArray<{
@@ -25,14 +26,7 @@ export default function Sidebar(props: SidebarProps) {
         </Typography>
         <Typography>{description}</Typography>
       </Paper>
-      <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-        Archives
-      </Typography>
-      {archives.map((archive) => (
-        <Link href={archive.url} key={archive.title}>
-          {archive.title}
-        </Link>
-      ))}
+      { archives.length > 0 && <Archives items={archives} />}
       <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
         Social
       </Typography>
