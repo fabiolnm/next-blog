@@ -9,6 +9,7 @@ interface FeaturedPostProps {
     image: string
     imageLabel: string
     title: string
+    url: string
   }
 }
 
@@ -16,7 +17,7 @@ export default function FeaturedPost(props: FeaturedPostProps) {
   const { post } = props
 
   return (
-    <CardActionArea component="a" href="#">
+    <CardActionArea component="a" href={post.url}>
       <Card sx={{ display: 'flex' }}>
         <CardContent sx={{ flex: 1 }}>
           <Typography component="h2" variant="h5">
@@ -34,9 +35,15 @@ export default function FeaturedPost(props: FeaturedPostProps) {
         </CardContent>
         <CardMedia
           component="img"
-          sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
           image={post.image}
           alt={post.imageLabel}
+          sx={{
+            width: 160,
+            height: 200,
+            overflow: 'hidden',
+            objectFit: "cover",
+            display: { xs: 'none', sm: 'block' }
+          }}
         />
       </Card>
     </CardActionArea>

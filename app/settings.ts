@@ -20,6 +20,7 @@ export const mainFeaturedPost = {
   image: 'https://source.unsplash.com/random?wallpapers',
   imageText: 'main image description',
   linkText: 'Continue reading…',
+  url: '/en/posts/2024/02/10/post4'
 }
 
 export const featuredPosts = [

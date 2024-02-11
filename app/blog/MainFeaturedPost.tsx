@@ -48,7 +48,7 @@ export default function MainFeaturedPost() {
             <Typography variant="h5" color="inherit" paragraph>
               {post.description}
             </Typography>
-            <Link variant="subtitle1" href="#" color="#FFF">
+            <Link variant="subtitle1" href={post.url} color="#FFF">
               {post.linkText}
             </Link>
           </Box>
