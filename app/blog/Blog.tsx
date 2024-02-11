@@ -12,7 +12,7 @@ export default function Blog({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Container maxWidth="lg">
-        <Header title="Blog" />
+        <Header />
         <main style={{
           display: 'flex',
           flexDirection: 'column',

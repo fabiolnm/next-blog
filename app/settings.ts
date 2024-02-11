@@ -1,5 +1,7 @@
 import { GitHub, Facebook, X } from '@mui/icons-material'
 
+export const blogTitle = 'Blog'
+
 export const sections = [
   { title: 'Next.js', url: '#' },
   { title: 'Material UI', url: '#' },
