@@ -1,4 +1,5 @@
 import createMdx from '@next/mdx'
+import remarkGfm from 'remark-gfm'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -7,12 +8,13 @@ const nextConfig = {
     domains: ['source.unsplash.com'],
   },
   // Configure `pageExtensions` to include MDX files
-  pageExtensions: ['mdx', 'ts', 'tsx'],
+  pageExtensions: ['css', 'mdx', 'ts', 'tsx'],
 }
 
 const withMDX = createMdx({
   // Add markdown plugins here, as desired
   options: {
+    remarkPlugins: [remarkGfm],
   }
 })
 
