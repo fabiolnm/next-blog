@@ -23,11 +23,8 @@ export default function Blog({ children }: { children: React.ReactNode }) {
           <MainFeaturedPost />
           <Grid container spacing={2}>
             <Grid item xs={12} md={9}>
-              <Typography variant="h6" gutterBottom>
-                Posts
-              </Typography>
               <Divider />
-              <Paper sx={{ display: 'flex', flexDirection: 'column', p: 2 }}>
+              <Paper sx={{ display: 'flex', flexDirection: 'column', px: 2 }}>
                 { children }
               </Paper>
             </Grid>
