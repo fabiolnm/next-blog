@@ -10,15 +10,9 @@ export default function Sidebar() {
   return (
     <>
       <Typography variant="h6" gutterBottom>
-        About
-      </Typography>
-      <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200' }}>
-        <Typography>{description}</Typography>
-      </Paper>
-      <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
         Social
       </Typography>
-      <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200' }}>
+      <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200', mb: 3 }}>
         {
           social.map((network) => (
             <Link href="#" key={network.name}>
@@ -30,7 +24,14 @@ export default function Sidebar() {
           ))
         }
       </Paper>
-      { archives.length > 0 && <Archives items={archives} />}
+      <Typography variant="h6" gutterBottom>
+        About
+      </Typography>
+      <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200' }}>
+        <Typography>{description}</Typography>
+      </Paper>
+
+      { archives?.length > 0 && <Archives items={archives} />}
     </>
   )
 }
