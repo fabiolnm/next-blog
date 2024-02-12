@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 import { blogTitle, sections } from '../settings'
 
-export default function Header() {
+export default function Header({ k }: { k?: string }) {
   return (
     <>
       <Toolbar sx={{
@@ -45,10 +45,10 @@ export default function Header() {
           justifyContent: 'space-between',
           overflowX: 'auto',
           a: {
-            height: '40px',
-            padding: '8px 16px',
+            height: '48px',
+            padding: '12px 42px',
             whiteSpace: 'nowrap',
-            '&:hover': {
+            '&:hover, &.active': {
               color: 'primary.main',
               backgroundColor: 'background.default',
             }
@@ -57,7 +57,12 @@ export default function Header() {
       >
         {
           sections.map((keyword) => (
-            <Link color="inherit" key={keyword} href={`/?k=${keyword}`}>
+            <Link
+              color="inherit"
+              key={keyword}
+              href={`/?k=${keyword}`}
+              className={k === keyword ? 'active' : ''}
+            >
               {keyword}
             </Link>
           ))

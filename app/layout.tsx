@@ -5,7 +5,6 @@ import { ThemeProvider } from '@mui/material/styles'
 import theme from './theme'
 
 import type { Metadata } from "next"
-import Blog from './blog/Blog'
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,9 +22,7 @@ export default function RootLayout({
         <CssBaseline />
         <html lang="en">
           <body suppressHydrationWarning>
-            <Blog>
-              {children}
-            </Blog>
+            {children}
           </body>
         </html>
       </ThemeProvider>

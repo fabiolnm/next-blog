@@ -2,6 +2,7 @@ import {
   Card, CardActionArea, CardContent, Divider, Typography
 } from '@mui/material'
 import { getPagesMetadata } from './settings'
+import Blog from './blog/Blog'
 
 interface PageProps {
   searchParams: any
@@ -16,7 +17,7 @@ export default async function Page (props: PageProps) {
     pages.filter(({ metadata }) => metadata.keywords?.includes(k))
 
   return (
-    <>
+    <Blog k={k}>
       <Typography variant="h6" component="h1" gutterBottom>
         Posts
       </Typography>
@@ -40,6 +41,6 @@ export default async function Page (props: PageProps) {
           </CardActionArea>
         ))
       }
-    </>
+    </Blog>
   )
 }

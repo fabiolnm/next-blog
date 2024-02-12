@@ -8,11 +8,14 @@ import Footer from './Footer'
 
 import { featuredPosts } from '../settings'
 
-export default function Blog({ children }: { children: React.ReactNode }) {
+export default function Blog({ k, children }: {
+  k?: string,
+  children: React.ReactNode
+}) {
   return (
     <>
       <Container maxWidth="lg">
-        <Header />
+        <Header k={k} />
         <main style={{
           display: 'flex',
           flexDirection: 'column',
