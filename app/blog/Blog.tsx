@@ -6,12 +6,14 @@ import FeaturedPost from './FeaturedPost'
 import Sidebar from './Sidebar'
 import Footer from './Footer'
 
-import { featuredPosts } from '../settings'
+import { featuredPosts, mainFeaturedPost, getPagesMetadata } from '../settings'
+import { Listing } from './Listing'
 
-export default function Blog({ k, children }: {
+export default async function Blog({ k, children }: {
   k?: string,
-  children: React.ReactNode
+  children?: React.ReactNode
 }) {
+  const pages = await getPagesMetadata()
   return (
     <>
       <Container maxWidth="lg">
@@ -23,10 +25,14 @@ export default function Blog({ k, children }: {
           marginBottom: 30,
         }}
         >
-          <MainFeaturedPost />
+          <MainFeaturedPost
+            post={pages.find(({ path }) => path === mainFeaturedPost)}
+          />
           <Grid container spacing={2}>
             <Grid item xs={12} md={9}>
-              <Box>{ children }</Box>
+              <Box>
+                { children ?? <Listing pages={pages} k={k} /> }
+              </Box>
             </Grid>
             <Grid item xs={12} md={3}>
               <Sidebar />
@@ -34,8 +40,10 @@ export default function Blog({ k, children }: {
           </Grid>
           <Grid container spacing={4}>
             {
-              featuredPosts.map((post) => (
-                <Grid item xs={12} md={6} key={post.title}>
+              featuredPosts.map(
+                (post) => pages.find(({ path }) => path === post)
+              ).map((post) => post && (
+                <Grid item xs={12} md={6} key={post.metadata.title}>
                   <FeaturedPost post={post} />
                 </Grid>
               ))

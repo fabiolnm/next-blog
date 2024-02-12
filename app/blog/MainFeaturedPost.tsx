@@ -3,7 +3,8 @@ import Image from 'next/image'
 
 import { mainFeaturedPost as post } from '../settings'
 
-export default function MainFeaturedPost() {
+export default function MainFeaturedPost({ post }: { post: any }) {
+  const { title, description } = post.metadata
   return (
     <Paper
       sx={{
@@ -13,13 +14,14 @@ export default function MainFeaturedPost() {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        backgroundImage: `url(${post.image})`,
+        backgroundImage:
+          'url(https://source.unsplash.com/random?wallpapers?main)',
       }}
     >
       {<Image
         style={{ display: 'none' }}
-        src={post.image}
-        alt={post.imageText}
+        src="https://source.unsplash.com/random?wallpapers?main)"
+        alt=""
         width={100}
         height={100}
       />}
@@ -43,13 +45,13 @@ export default function MainFeaturedPost() {
             }}
           >
             <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-              {post.title}
+              {title}
             </Typography>
             <Typography variant="h5" color="inherit" paragraph>
-              {post.description}
+              {description}
             </Typography>
-            <Link variant="subtitle1" href={post.url} color="#FFF">
-              {post.linkText}
+            <Link variant="subtitle1" href={`/en/${post.path}`} color="#FFF">
+              Continue reading...
             </Link>
           </Box>
         </Grid>
