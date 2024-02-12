@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material'
 import { MDXProps } from 'mdx/types'
 import { Metadata } from 'next'
 
@@ -12,9 +13,9 @@ export function mount (
   return function Page() {
     return (
       <article>
-        <h1>
+        <Typography variant="h6" component="h1" gutterBottom>
           {`${title}`}
-        </h1>
+        </Typography>
         <small>
           <em>{ new Date(+y, +m - 1, +d).toDateString() }</em>
         </small>

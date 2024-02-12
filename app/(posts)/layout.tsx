@@ -1,7 +1,7 @@
 import flavor from './github-flavor.module.scss'
 import page from './page.module.sass'
 
-import { Box } from '@mui/material'
+import { Box, Paper } from '@mui/material'
 
 export default function RootLayout({
   children,
@@ -10,7 +10,9 @@ export default function RootLayout({
 }>) {
   return (
     <Box className={`${flavor.github} ${page.github}`}>
-      {children}
+      <Paper sx={{ px: 2, py: 0.5 }}>
+        {children}
+      </Paper>
     </Box>
   )
 }

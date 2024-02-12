@@ -1,3 +1,5 @@
+import fs from 'fs'
+
 import { GitHub, Facebook, X } from '@mui/icons-material'
 
 export const blogTitle = 'Blog'
@@ -12,6 +14,35 @@ export const sections = [
   { title: 'Heroku', url: '#' },
   { title: 'Ruby on Rails', url: '#' },
 ]
+
+export async function getPagesMetadata() {
+  const directoryPath = 'app/(posts)/en'
+
+  let files = []
+  try {
+    files = await fs.promises.readdir(directoryPath, { recursive: true })
+  } catch (err) {
+    throw new Error('Unable to scan directory: ' + err)
+  }
+
+  const pages = files.map((f) => f.split('/'))
+    .filter((parts) => parts[4]?.startsWith('page.'))
+    .map(([y, m, d, name]) => (
+      {
+        date: new Date(+y, +m - 1, +d),
+        path: [y, m, d, name].join('/'),
+      }
+    ))
+
+  const metadata = await Promise.all(
+    pages.map(({ date, path }) => (
+      import(`./(posts)/en/${path}/page`)
+        .then(({ metadata }) => ({ date, path, metadata }))
+    ))
+  )
+
+  return metadata
+}
 
 export const mainFeaturedPost = {
   title: 'Title of a longer featured blog post',
@@ -59,8 +90,3 @@ export const sidebar = {
     { name: 'Facebook', icon: Facebook },
   ],
 }
-
-export const posts: any[] = [
-  { title: 'Post1' },
-  { title: 'Post2' }
-]
