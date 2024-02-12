@@ -25,19 +25,16 @@ export async function getPagesMetadata() {
     throw new Error('Unable to scan directory: ' + err)
   }
 
-  const pages = files.map((f) => f.split('/'))
-    .filter((parts) => parts[4]?.startsWith('page.'))
-    .map(([y, m, d, name]) => (
-      {
-        date: new Date(+y, +m - 1, +d),
-        path: [y, m, d, name].join('/'),
-      }
-    ))
-
   const metadata = await Promise.all(
-    pages.map(({ date, path }) => (
-      import(`./(posts)/en/${path}/page`)
-        .then(({ metadata }) => ({ date, path, metadata }))
+    files.filter((f) => f.endsWith('metadata.ts')).map((f) => (
+      import(`./(posts)/en/${f}`).then(({ metadata }) => {
+        const [y, m, d, name] = f.split('/')
+        return {
+          metadata,
+          date: new Date(+y, +m - 1, +d),
+          path: [y, m, d, name].join('/')
+        }
+      })
     ))
   )
 

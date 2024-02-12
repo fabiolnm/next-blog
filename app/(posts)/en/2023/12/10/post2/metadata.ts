@@ -1,8 +1,4 @@
-import { Metadata } from 'next'
-import body from './body.mdx'
-import { mount } from '@/app/(posts)/mount'
-
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Another blog post',
   description: `Cum sociis natoque penatibus et magnis dis parturient montes,
     nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia
@@ -10,5 +6,3 @@ export const metadata: Metadata = {
     mattis consectetur purus sit amet fermentum.`,
   keywords: ['React', 'TypeScript'],
 }
-
-export default mount(__dirname, metadata, body)
