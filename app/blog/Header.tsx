@@ -56,9 +56,9 @@ export default function Header() {
         }}
       >
         {
-          sections.map(({ title, url }) => (
-            <Link color="inherit" key={title} href={url}>
-              {title}
+          sections.map((keyword) => (
+            <Link color="inherit" key={keyword} href={`/?k=${keyword}`}>
+              {keyword}
             </Link>
           ))
         }

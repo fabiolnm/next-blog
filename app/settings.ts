@@ -5,14 +5,14 @@ import { GitHub, Facebook, X } from '@mui/icons-material'
 export const blogTitle = 'Blog'
 
 export const sections = [
-  { title: 'Next.js', url: '#' },
-  { title: 'Material UI', url: '#' },
-  { title: 'TypeScript', url: '#' },
-  { title: 'React', url: '#' },
-  { title: 'Jest', url: '#' },
-  { title: 'Vercel', url: '#' },
-  { title: 'Heroku', url: '#' },
-  { title: 'Ruby on Rails', url: '#' },
+  'Next.js',
+  'Material UI',
+  'TypeScript',
+  'React',
+  'Jest',
+  'Vercel',
+  'Heroku',
+  'Ruby on Rails',
 ]
 
 export async function getPagesMetadata() {

@@ -3,15 +3,25 @@ import {
 } from '@mui/material'
 import { getPagesMetadata } from './settings'
 
-export default async function Page () {
+interface PageProps {
+  searchParams: any
+}
+
+export default async function Page (props: PageProps) {
+  const { searchParams } = props
+  const k = searchParams['k']
+
   const pages = await getPagesMetadata()
+  const filteredPages = !k ? pages :
+    pages.filter(({ metadata }) => metadata.keywords?.includes(k))
+
   return (
     <>
       <Typography variant="h6" component="h1" gutterBottom>
         Posts
       </Typography>
       {
-        pages.map(({ date, path, metadata }) => (
+        filteredPages.map(({ date, path, metadata }) => (
           <CardActionArea key={path} href={`/en/${path}`}>
             <Card sx={{ mb: 2 }}>
               <CardContent>

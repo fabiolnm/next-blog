@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia
     quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras
     mattis consectetur purus sit amet fermentum.`,
+  keywords: ['React', 'TypeScript'],
 }
 
 export default mount(__dirname, metadata, body)

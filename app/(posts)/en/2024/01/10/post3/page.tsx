@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac
     cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
     sit amet risus.`,
+  keywords: ['Next.js', 'Heroku'],
 }
 
 export default mount(__dirname, metadata, body)
