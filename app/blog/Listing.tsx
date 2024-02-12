@@ -1,8 +1,31 @@
-import { Card, CardActionArea, CardContent, Divider, Typography } from "@mui/material"
+'use client'
 
-export function Listing({ pages, k }: { pages: any[], k?: string }) {
+import {
+  Card, CardActionArea, CardContent, Divider, Pagination, Typography
+} from "@mui/material"
+import { usePathname, useRouter } from "next/navigation"
+
+export function Listing(
+  { pages, searchParams }: { pages: any[], searchParams?: any }
+) {
+  const router = useRouter()
+  const { k, p } = searchParams ?? { k: '', p: '1' }
+
+  const currentPage = +(p ?? 1)
+  const pageSize = 2
+  const endIndex = currentPage * pageSize
+  const startIndex = endIndex - pageSize
+
   const filteredPages = !k ? pages :
     pages.filter(({ metadata }) => metadata.keywords?.includes(k))
+
+  const pathname = usePathname()
+
+  function paginate (pageNumber: number | string) {
+    const params = new URLSearchParams(searchParams)
+    params.set('p', pageNumber.toString())
+    return `${pathname}?${params.toString()}`
+  };
 
   return (
     <>
@@ -10,7 +33,7 @@ export function Listing({ pages, k }: { pages: any[], k?: string }) {
         Posts
       </Typography>
       {
-        filteredPages.map(({ date, path, metadata }) => (
+        filteredPages.slice(startIndex, endIndex).map(({ date, path, metadata }) => (
           <CardActionArea key={path} href={`/en/${path}`}>
             <Card sx={{ mb: 2 }}>
               <CardContent>
@@ -29,6 +52,14 @@ export function Listing({ pages, k }: { pages: any[], k?: string }) {
           </CardActionArea>
         ))
       }
+      { filteredPages.length > pageSize && (
+        <Pagination count={Math.ceil(filteredPages.length / pageSize)}
+          variant="outlined"
+          shape="rounded"
+          defaultPage={Number(p || 1)}
+          onChange={(_, p) => router.push(paginate(p), { scroll: false })}
+        />
+      )}
     </>
   )
 }

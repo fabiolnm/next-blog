@@ -9,15 +9,15 @@ import Footer from './Footer'
 import { featuredPosts, mainFeaturedPost, getPagesMetadata } from '../settings'
 import { Listing } from './Listing'
 
-export default async function Blog({ k, children }: {
-  k?: string,
+export default async function Blog({ searchParams, children }: {
+  searchParams?: any,
   children?: React.ReactNode
 }) {
   const pages = await getPagesMetadata()
   return (
     <>
       <Container maxWidth="lg">
-        <Header k={k} />
+        <Header k={searchParams ? searchParams['k'] : ''} />
         <main style={{
           display: 'flex',
           flexDirection: 'column',
@@ -31,7 +31,9 @@ export default async function Blog({ k, children }: {
           <Grid container spacing={2}>
             <Grid item xs={12} md={9}>
               <Box>
-                { children ?? <Listing pages={pages} k={k} /> }
+                {children ?? (
+                  <Listing pages={pages} searchParams={searchParams} />
+                )}
               </Box>
             </Grid>
             <Grid item xs={12} md={3}>
