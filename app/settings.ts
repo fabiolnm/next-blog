@@ -31,6 +31,7 @@ export async function getPagesMetadata() {
         const [y, m, d, name] = f.split('/')
         return {
           metadata,
+          lang: 'en',
           date: new Date(+y, +m - 1, +d),
           path: [y, m, d, name].join('/')
         }
