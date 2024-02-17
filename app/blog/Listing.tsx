@@ -44,8 +44,8 @@ export function Listing(
                   { date.toDateString() }
                 </Typography>
                 <Divider sx={{ mb: 1 }} />
-                <Typography variant="body1" component="div">
-                  { metadata.description }
+                <Typography variant="body1">
+                  { metadata.description.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ') }
                 </Typography>
               </CardContent>
             </Card>

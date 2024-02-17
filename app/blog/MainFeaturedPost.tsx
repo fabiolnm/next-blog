@@ -36,7 +36,7 @@ export default function MainFeaturedPost({ post }: { post: any }) {
         }}
       />
       <Grid container>
-        <Grid item md={6}>
+        <Grid item md={8}>
           <Box
             sx={{
               position: 'relative',
@@ -47,9 +47,9 @@ export default function MainFeaturedPost({ post }: { post: any }) {
             <Typography component="h1" variant="h3" color="inherit" gutterBottom>
               {title}
             </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
-              {description}
-            </Typography>
+            <Typography variant="h5" color="inherit" paragraph
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
             <Link variant="subtitle1" href={`/en/${post.path}`} color="#FFF">
               Continue reading...
             </Link>

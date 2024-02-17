@@ -10,7 +10,10 @@ export async function generateMetadata({ params }: { params: any }) {
   const { metadata } = await
     import(`../../../../../${lang}/${year}/${month}/${day}/${name}/metadata`)
 
-  return metadata
+  const description = metadata.description
+    .replace(/<[^>]*>/g, '').replace(/\s+/g, ' ')
+
+  return { ...metadata, description }
 }
 
 export default async function Page ({ params }: { params: any }) {
@@ -37,7 +40,7 @@ export default async function Page ({ params }: { params: any }) {
           <small>
             <em>{ new Date(+year, +month - 1, +day).toDateString() }</em>
           </small>
-          <p>{description}</p>
+          <p dangerouslySetInnerHTML={{ __html: description }} />
           <Body />
         </article>
       </Paper>
