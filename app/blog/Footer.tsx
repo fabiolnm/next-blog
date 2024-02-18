@@ -1,11 +1,12 @@
 import { Box, Container, Typography } from '@mui/material'
 import Link from 'next/link'
+import { SupportedLanguages, footerContents } from '../settings'
 
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="https://your.website/">
         Your Website
       </Link>{' '}
       {new Date().getFullYear()}
@@ -14,13 +15,8 @@ function Copyright() {
   )
 }
 
-interface FooterProps {
-  description: string
-  title: string
-}
-
-export default function Footer(props: FooterProps) {
-  const { description, title } = props
+export default function Footer({ lang }: { lang: SupportedLanguages }) {
+  const { description, title } = footerContents[lang] || footerContents.en
 
   return (
     <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>

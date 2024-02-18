@@ -1,9 +1,15 @@
 import {  Paper, Typography, Grid, Link, Box } from '@mui/material'
 import Image from 'next/image'
 
-import { mainFeaturedPost as post } from '../settings'
+import { SupportedLanguages, mainFeaturedPost as post } from '../settings'
 
-export default function MainFeaturedPost({ post }: { post: any }) {
+interface Props {
+  lang: SupportedLanguages
+  post: any
+}
+
+export default function MainFeaturedPost(props: Props) {
+  const { lang, post } = props
   const { title, description } = post.metadata
   return (
     <Paper
@@ -50,7 +56,7 @@ export default function MainFeaturedPost({ post }: { post: any }) {
             <Typography variant="h5" color="inherit" paragraph
               dangerouslySetInnerHTML={{ __html: description }}
             />
-            <Link variant="subtitle1" href={`/en/${post.path}`} color="#FFF">
+            <Link variant="subtitle1" href={`/${lang}/${post.path}`} color="#FFF">
               Continue reading...
             </Link>
           </Box>

@@ -14,7 +14,8 @@ export default async function Blog({ params, searchParams, children }: {
   searchParams?: any,
   children?: React.ReactNode
 }) {
-  const pages = await getPagesMetadata()
+  const { lang } = params
+  const pages = await getPagesMetadata(lang || 'en')
   return (
     <>
       <Container maxWidth="lg">
@@ -28,14 +29,14 @@ export default async function Blog({ params, searchParams, children }: {
           marginBottom: 30,
         }}
         >
-          <MainFeaturedPost
+          <MainFeaturedPost lang={lang}
             post={pages.find(({ path }) => path === mainFeaturedPost)}
           />
           <Grid container spacing={2}>
             <Grid item xs={12} md={9}>
               <Box>
                 {children ?? (
-                  <Listing pages={pages} searchParams={searchParams} />
+                  <Listing lang={lang} pages={pages} searchParams={searchParams} />
                 )}
               </Box>
             </Grid>
@@ -49,17 +50,14 @@ export default async function Blog({ params, searchParams, children }: {
                 (post) => pages.find(({ path }) => path === post)
               ).map((post) => post && (
                 <Grid item xs={12} md={6} key={post.metadata.title}>
-                  <FeaturedPost post={post} />
+                  <FeaturedPost lang={lang} post={post} />
                 </Grid>
               ))
             }
           </Grid>
         </main>
       </Container>
-      <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
-      />
+      <Footer lang={lang} />
     </>
   )
 }

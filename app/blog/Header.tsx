@@ -34,7 +34,7 @@ export default function Header(props: Props) {
           noWrap
           sx={{ flex: 1 }}
         >
-          {blogTitle}
+          {blogTitle[lang] || blogTitle.en}
         </Typography>
         <LanguageSelector lang={lang} />
         {/* <Button size="small">Subscribe</Button> */}
@@ -65,7 +65,7 @@ export default function Header(props: Props) {
             <Link
               color="inherit"
               key={keyword}
-              href={`/?k=${keyword}`}
+              href={`/${lang}/?k=${keyword}`}
               className={k === keyword ? 'active' : ''}
             >
               {keyword}

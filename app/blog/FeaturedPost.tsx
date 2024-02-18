@@ -4,17 +4,19 @@ import {
   Divider, Typography
 } from '@mui/material'
 import { randomInt } from 'crypto'
+import { SupportedLanguages } from '../settings'
 
 interface FeaturedPostProps {
   post: any
+  lang: SupportedLanguages
 }
 
 export default function FeaturedPost(props: FeaturedPostProps) {
-  const { post } = props
+  const { lang, post } = props
   const { title, description } = post.metadata
 
   return (
-    <CardActionArea component="a" href={`/en/${post.path}`}>
+    <CardActionArea component="a" href={`/${lang}/${post.path}`}>
       <Card>
         <CardHeader title={title} />
         <Divider />

@@ -4,10 +4,16 @@ import {
   Card, CardActionArea, CardContent, Divider, Pagination, Typography
 } from "@mui/material"
 import { usePathname, useRouter } from "next/navigation"
+import { SupportedLanguages } from "../settings"
 
-export function Listing(
-  { pages, searchParams }: { pages: any[], searchParams?: any }
-) {
+interface Props {
+  pages: any[]
+  searchParams?: any
+  lang: SupportedLanguages
+}
+
+export function Listing(props: Props) {
+  const { pages, searchParams, lang } = props
   const router = useRouter()
   const { k, p } = searchParams ?? { k: '', p: '1' }
 
@@ -34,7 +40,7 @@ export function Listing(
       </Typography>
       {
         filteredPages.slice(startIndex, endIndex).map(({ date, path, metadata }) => (
-          <CardActionArea key={path} href={`/en/${path}`}>
+          <CardActionArea key={path} href={`/${lang}/${path}`}>
             <Card sx={{ mb: 2 }}>
               <CardContent>
                 <Typography component="div" variant="h5">

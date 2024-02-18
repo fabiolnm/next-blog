@@ -2,7 +2,23 @@ import fs from 'fs'
 
 import { GitHub, Facebook, X } from '@mui/icons-material'
 
-export const blogTitle = 'Blog'
+export type SupportedLanguages = 'en' | 'br'
+
+export const blogTitle: any = {
+  en: 'Blog EN',
+  br: 'Blog BR',
+}
+
+export const footerContents: any = {
+  en: {
+    title: 'Footer EN',
+    description: 'Something here to give the footer a purpose!'
+  },
+  br: {
+    title: 'Footer BR',
+    description: 'Algo aqui que dê propósito ao rodapé da página!'
+  }
+}
 
 export const sections = [
   'Next.js',
@@ -15,8 +31,8 @@ export const sections = [
   'Ruby on Rails',
 ]
 
-export async function getPagesMetadata() {
-  const directoryPath = 'app/(posts)/en'
+export async function getPagesMetadata(lang: SupportedLanguages) {
+  const directoryPath = `app/(posts)/${lang}`
 
   let files = []
   try {
@@ -27,7 +43,7 @@ export async function getPagesMetadata() {
 
   const metadata = await Promise.all(
     files.filter((f) => f.endsWith('metadata.ts')).map((f) => (
-      import(`./(posts)/en/${f}`).then(({ metadata }) => {
+      import(`./(posts)/${lang}/${f}`).then(({ metadata }) => {
         const [y, m, d, name] = f.split('/')
         return {
           metadata,
