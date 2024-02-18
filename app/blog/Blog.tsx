@@ -14,12 +14,12 @@ export default async function Blog({ params, searchParams, children }: {
   searchParams?: any,
   children?: React.ReactNode
 }) {
-  const { lang } = params
-  const pages = await getPagesMetadata(lang || 'en')
+  const lang = params.lang ?? 'en'
+  const pages = await getPagesMetadata(lang)
   return (
     <>
       <Container maxWidth="lg">
-        <Header lang={params['lang']}
+        <Header lang={lang}
           k={searchParams ? searchParams['k'] : ''}
         />
         <main style={{
