@@ -9,7 +9,8 @@ import Footer from './Footer'
 import { featuredPosts, mainFeaturedPost, getPagesMetadata } from '../settings'
 import { Listing } from './Listing'
 
-export default async function Blog({ searchParams, children }: {
+export default async function Blog({ params, searchParams, children }: {
+  params: any,
   searchParams?: any,
   children?: React.ReactNode
 }) {
@@ -17,7 +18,9 @@ export default async function Blog({ searchParams, children }: {
   return (
     <>
       <Container maxWidth="lg">
-        <Header k={searchParams ? searchParams['k'] : ''} />
+        <Header lang={params['lang']}
+          k={searchParams ? searchParams['k'] : ''}
+        />
         <main style={{
           display: 'flex',
           flexDirection: 'column',

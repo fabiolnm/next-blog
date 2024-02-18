@@ -1,12 +1,19 @@
-import { IconButton, Toolbar, Typography } from '@mui/material'
-import { LogoDev, Search } from '@mui/icons-material'
+import { Toolbar, Typography } from '@mui/material'
+import { LogoDev } from '@mui/icons-material'
 
 // import Image from 'next/image'
 import Link from 'next/link'
 
 import { blogTitle, sections } from '../settings'
+import { LanguageSelector } from './LanguageSelector'
 
-export default function Header({ k }: { k?: string }) {
+interface Props {
+  lang: string
+  k?: string
+}
+
+export default function Header(props: Props) {
+  const { lang, k } = props
   return (
     <>
       <Toolbar sx={{
@@ -16,7 +23,7 @@ export default function Header({ k }: { k?: string }) {
         paddingRight: '0 !important',
       }}>
         {/* <Image src="../logo.png" alt="Logo" width={72} height={16} /> */}
-        <Link href="/">
+        <Link href={`/${lang}`}>
           <LogoDev fontSize="large" />
         </Link>
         <Typography
@@ -29,9 +36,7 @@ export default function Header({ k }: { k?: string }) {
         >
           {blogTitle}
         </Typography>
-        <IconButton>
-          <Search />
-        </IconButton>
+        <LanguageSelector lang={lang} />
         {/* <Button size="small">Subscribe</Button> */}
         {/* <Button variant="outlined" size="small">
           Sign up

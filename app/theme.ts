@@ -15,6 +15,15 @@ const theme = createTheme({
   typography: {
     fontFamily: roboto.style.fontFamily,
   },
+  components: {
+    MuiList: {
+      styleOverrides: {
+        root: {
+          padding: 0,
+        },
+      }
+    }
+  }
 })
 
 export default theme
