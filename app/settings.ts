@@ -2,7 +2,8 @@ import fs from 'fs'
 
 import { GitHub, Facebook, X } from '@mui/icons-material'
 
-export type SupportedLanguages = 'en' | 'br'
+export const supportedLanguagesValues = ['en', 'br'] as const;
+export type SupportedLanguages = typeof supportedLanguagesValues[number]
 
 export const blogTitle: any = {
   en: 'Blog EN',
