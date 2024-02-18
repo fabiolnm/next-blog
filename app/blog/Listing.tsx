@@ -5,6 +5,7 @@ import {
 } from "@mui/material"
 import { usePathname, useRouter } from "next/navigation"
 import { SupportedLanguages } from "../settings"
+import { t } from "../i18n"
 
 interface Props {
   pages: any[]
@@ -36,7 +37,7 @@ export function Listing(props: Props) {
   return (
     <>
       <Typography variant="h6" component="h1" gutterBottom>
-        Posts
+        {t('posts', lang)}
       </Typography>
       {
         filteredPages.slice(startIndex, endIndex).map(({ date, path, metadata }) => (

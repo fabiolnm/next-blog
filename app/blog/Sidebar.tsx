@@ -2,15 +2,16 @@ import { Paper, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
 import Archives from './Archives'
 
-import { sidebar } from '../settings'
+import { SupportedLanguages, sidebar } from '../settings'
+import { t } from '../i18n'
 
-export default function Sidebar() {
+export default function Sidebar({ lang }: { lang: SupportedLanguages }) {
   const { archives, description, social } = sidebar
 
   return (
     <>
       <Typography variant="h6" gutterBottom>
-        Social
+        {t('social', lang)}
       </Typography>
       <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200', mb: 3 }}>
         {
@@ -25,7 +26,7 @@ export default function Sidebar() {
         }
       </Paper>
       <Typography variant="h6" gutterBottom>
-        About
+        {t('about', lang)}
       </Typography>
       <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200' }}>
         <Typography>{description}</Typography>

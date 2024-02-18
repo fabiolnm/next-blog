@@ -41,7 +41,7 @@ export default async function Blog({ params, searchParams, children }: {
               </Box>
             </Grid>
             <Grid item xs={12} md={3}>
-              <Sidebar />
+              <Sidebar lang={lang} />
             </Grid>
           </Grid>
           <Grid container spacing={4}>

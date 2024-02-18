@@ -2,6 +2,7 @@ import {  Paper, Typography, Grid, Link, Box } from '@mui/material'
 import Image from 'next/image'
 
 import { SupportedLanguages, mainFeaturedPost as post } from '../settings'
+import { t } from '../i18n'
 
 interface Props {
   lang: SupportedLanguages
@@ -57,7 +58,7 @@ export default function MainFeaturedPost(props: Props) {
               dangerouslySetInnerHTML={{ __html: description }}
             />
             <Link variant="subtitle1" href={`/${lang}/${post.path}`} color="#FFF">
-              Continue reading...
+              { t('continueReading', lang) }
             </Link>
           </Box>
         </Grid>

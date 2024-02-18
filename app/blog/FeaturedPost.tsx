@@ -5,6 +5,7 @@ import {
 } from '@mui/material'
 import { randomInt } from 'crypto'
 import { SupportedLanguages } from '../settings'
+import { t } from '../i18n'
 
 interface FeaturedPostProps {
   post: any
@@ -54,7 +55,7 @@ export default function FeaturedPost(props: FeaturedPostProps) {
             </Typography>
             <CardActions sx={{ px: 0 }}>
               <Typography variant="subtitle1" color="primary">
-                Continue reading...
+              { t('continueReading', lang) }
               </Typography>
             </CardActions>
           </CardContent>
