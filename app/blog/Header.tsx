@@ -4,11 +4,12 @@ import { LogoDev } from '@mui/icons-material'
 // import Image from 'next/image'
 import Link from 'next/link'
 
-import { blogTitle, sections } from '../settings'
+import { SupportedLanguages, sections } from '../settings'
 import { LanguageSelector } from './LanguageSelector'
+import { t } from '../i18n'
 
 interface Props {
-  lang: string
+  lang: SupportedLanguages
   k?: string
 }
 
@@ -34,7 +35,7 @@ export default function Header(props: Props) {
           noWrap
           sx={{ flex: 1 }}
         >
-          {blogTitle[lang] || blogTitle.en}
+          {t('blogTitle', lang)}
         </Typography>
         <LanguageSelector lang={lang} />
         {/* <Button size="small">Subscribe</Button> */}

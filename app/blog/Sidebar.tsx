@@ -1,12 +1,11 @@
 import { Paper, Stack, Typography } from '@mui/material'
 import Link from 'next/link'
-import Archives from './Archives'
 
 import { SupportedLanguages, sidebar } from '../settings'
 import { t } from '../i18n'
 
 export default function Sidebar({ lang }: { lang: SupportedLanguages }) {
-  const { archives, description, social } = sidebar
+  const { social } = sidebar
 
   return (
     <>
@@ -26,13 +25,12 @@ export default function Sidebar({ lang }: { lang: SupportedLanguages }) {
         }
       </Paper>
       <Typography variant="h6" gutterBottom>
-        {t('about', lang)}
+        {t('about.title', lang)}
       </Typography>
       <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200' }}>
-        <Typography>{description}</Typography>
+        <Typography>{t('about.description', lang)}</Typography>
       </Paper>
-
-      { archives?.length > 0 && <Archives items={archives} />}
+      {/* { archives?.length > 0 && <Archives items={archives} />} */}
     </>
   )
 }

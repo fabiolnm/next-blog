@@ -1,6 +1,7 @@
 import { Box, Container, Typography } from '@mui/material'
 import Link from 'next/link'
-import { SupportedLanguages, footerContents } from '../settings'
+import { SupportedLanguages } from '../settings'
+import { t } from '../i18n'
 
 function Copyright() {
   return (
@@ -16,7 +17,8 @@ function Copyright() {
 }
 
 export default function Footer({ lang }: { lang: SupportedLanguages }) {
-  const { description, title } = footerContents[lang] || footerContents.en
+  const description = t('footer.description', lang)
+  const title = t('footer.title', lang)
 
   return (
     <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>

@@ -7,10 +7,11 @@ import { ThemeProvider } from '@mui/material/styles'
 import theme from './theme'
 
 import type { Metadata } from "next"
+import { t } from './i18n'
 
 export const metadata: Metadata = {
-  title: 'Next MUI Blog',
-  description: 'Blog template based on Next.js 14 and Material-UI',
+  title: t('blogTitle', 'en'),
+  description: t('blogDescription', 'en'),
 }
 
 const { GTAG_ID } = process.env
