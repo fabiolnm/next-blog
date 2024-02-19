@@ -1,7 +1,7 @@
 'use client'
 
 import { ListItemIcon, MenuItem, Select } from "@mui/material"
-import { BR, US } from "country-flag-icons/react/3x2"
+import { BR, US, FR } from "country-flag-icons/react/3x2"
 import { usePathname, useRouter } from "next/navigation"
 
 export function LanguageSelector({ lang }: { lang: string }) {
@@ -31,12 +31,17 @@ export function LanguageSelector({ lang }: { lang: string }) {
     >
       <MenuItem value="en" sx={{ p: 0.2, justifyContent: 'center' }}>
         <ListItemIcon>
-          <US title="United States" />
+          <US />
         </ListItemIcon>
       </MenuItem>
       <MenuItem value="br" sx={{ p: 0.2, justifyContent: 'center' }}>
         <ListItemIcon>
-          <BR title="Brazil" />
+          <BR />
+        </ListItemIcon>
+      </MenuItem>
+      <MenuItem value="fr" sx={{ p: 0.2, justifyContent: 'center' }}>
+        <ListItemIcon>
+          <FR />
         </ListItemIcon>
       </MenuItem>
     </Select>

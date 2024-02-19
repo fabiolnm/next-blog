@@ -30,7 +30,9 @@ export default async function Blog({ params, searchParams, children }: {
         }}
         >
           <MainFeaturedPost lang={lang}
-            post={pages.find(({ path }) => path === mainFeaturedPost)}
+            post={
+              pages.find(({ path }) => path === mainFeaturedPost) || pages[0]
+            }
           />
           <Grid container spacing={2}>
             <Grid item xs={12} md={9}>

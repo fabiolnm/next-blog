@@ -42,6 +42,8 @@ export async function getPagesMetadata(lang: SupportedLanguages) {
     throw new Error('Unable to scan directory: ' + err)
   }
 
+  // filter out the root page.tsx file
+  files = files.filter((f) => f !== 'page.tsx')
   const metadata = await Promise.all(
     files.filter((f) => f.endsWith('metadata.ts')).map((f) => (
       import(`./(posts)/${lang}/${f}`).then(({ metadata }) => {

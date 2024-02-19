@@ -11,7 +11,10 @@ interface Props {
 
 export default function MainFeaturedPost(props: Props) {
   const { lang, post } = props
-  const { title, description } = post.metadata
+  const { title, description } = post?.metadata || {
+    title: t('noPosts', lang),
+    description: `${t('noPostsDesc', lang)} app/(posts)/${lang}`
+  }
   return (
     <Paper
       sx={{
@@ -57,9 +60,11 @@ export default function MainFeaturedPost(props: Props) {
             <Typography variant="h5" color="inherit" paragraph
               dangerouslySetInnerHTML={{ __html: description }}
             />
-            <Link variant="subtitle1" href={`/${lang}/${post.path}`} color="#FFF">
-              { t('continueReading', lang) }
-            </Link>
+            { post && (
+              <Link variant="subtitle1" href={`/${lang}/${post.path}`} color="#FFF">
+                { t('continueReading', lang) }
+              </Link>
+            )}
           </Box>
         </Grid>
       </Grid>

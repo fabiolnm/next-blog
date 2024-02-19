@@ -47,9 +47,11 @@ export function Listing(props: Props) {
                 <Typography component="div" variant="h5">
                   { metadata.title }
                 </Typography>
-                <Typography variant="subtitle1" color="text.secondary" component="em">
-                  { date.toDateString() }
-                </Typography>
+                { date && (
+                  <Typography variant="subtitle1" color="text.secondary" component="em">
+                    { date.toDateString() }
+                  </Typography>
+                )}
                 <Divider sx={{ mb: 1 }} />
                 <Typography variant="body1">
                   { metadata.description.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ') }
