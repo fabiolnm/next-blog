@@ -14,11 +14,11 @@ export default function Sidebar({ lang }: { lang: SupportedLanguages }) {
       </Typography>
       <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200', mb: 3 }}>
         {
-          social.map((network) => (
-            <Link href="#" key={network.name}>
+          social.map(({ name, url, Icon }) => (
+            <Link href={url} key={name}>
               <Stack direction="row" gap={1} sx={{ py: 1 }} alignItems="center">
-                <network.icon />
-                <span>{network.name}</span>
+                <Icon />
+                <span>{name}</span>
               </Stack>
             </Link>
           ))
@@ -28,7 +28,9 @@ export default function Sidebar({ lang }: { lang: SupportedLanguages }) {
         {t('about.title', lang)}
       </Typography>
       <Paper elevation={0} sx={{ p: 2, bgcolor: 'grey.200' }}>
-        <Typography>{t('about.description', lang)}</Typography>
+        <Typography
+          dangerouslySetInnerHTML={{ __html: t('about.description', lang) }}
+	/>
       </Paper>
       {/* { archives?.length > 0 && <Archives items={archives} />} */}
     </>

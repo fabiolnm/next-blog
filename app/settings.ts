@@ -54,8 +54,8 @@ export const featuredPosts = [
 
 export const sidebar = {
   social: [
-    { name: 'GitHub', icon: GitHub },
-    { name: 'X', icon: X },
-    { name: 'Facebook', icon: Facebook },
+    { Icon: GitHub,   name: 'GitHub',   url: 'https://github.com/username'   },
+    { Icon: X,        name: 'X',        url: 'https://x.com/username'        },
+    { Icon: Facebook, name: 'Facebook', url: 'https://facebook.com/username' },
   ]
 }
