@@ -6,14 +6,6 @@ import { CssBaseline } from '@mui/material'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './theme'
 
-import type { Metadata } from "next"
-import { t } from './i18n'
-
-export const metadata: Metadata = {
-  title: t('blogTitle', 'en'),
-  description: t('blogDescription', 'en'),
-}
-
 const { GTAG_ID } = process.env
 
 export default function RootLayout({

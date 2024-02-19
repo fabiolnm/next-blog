@@ -1,5 +1,6 @@
 const dict = {
   blogTitle: 'Blog BR',
+  blogDescription: 'Template de Blog template baseado em Next.js 14 e Material UI',
   posts: 'Artigos',
   social: 'Redes sociais',
   about: {
